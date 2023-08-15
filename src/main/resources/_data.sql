@@ -1,0 +1,1 @@
+INSERT INTO courses (id, title, author) VALUES (1, 'Learn Java', 'John'), (2, 'Learn AWS', 'Payam'), (3, 'Learn Ruby', 'Payam')
