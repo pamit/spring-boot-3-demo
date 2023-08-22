@@ -1,13 +1,22 @@
 package com.pamit.springbootdemo.dao;
 
 import com.pamit.springbootdemo.entity.Student;
+import com.pamit.springbootdemo.entity.User;
 
 import java.util.List;
 
 public interface StudentDAO {
-    void save(Student student);
+    Student save(Student student);
 
-    Student find(int id);
+    <T extends User> void saveGeneric(T student);
 
-    List<Student> query(String firsName);
+    Student findById(int id);
+
+    List<Student> findAll();
+
+    List<Student> findByFirstName(String firsName);
+
+    void update(Student student);
+
+    void delete(int id);
 }

@@ -1,17 +1,16 @@
 package com.pamit.springbootdemo.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "student")
+@Table(name = "employee")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Student extends User {
+public class Employee extends User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +27,7 @@ public class Student extends User {
     @Column(name = "email")
     private String email;
 
-    public Student(String firstName, String lastName, String email) {
+    public Employee(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -36,7 +35,7 @@ public class Student extends User {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Employee{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

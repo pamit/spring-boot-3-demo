@@ -1,17 +1,6 @@
 fileignoreconfig:
-- filename: development.log
-  checksum: 3b787202f89f462f3835d00da8c1cc3907cbd896a5aecc2ad0a5588700022f83
-- filename: src/main/resources/01-create-user.sql
-  checksum: a6f60694fb80422c72f2de05180679aef6dab3d882f8c362ae950dab7e238d28
-- filename: src/main/resources/02-student-tracker.sql
-  checksum: b079b4fae7a70e2c21b25dae0662093f0088b0b7f22caecdaa57f3344303fc75
-- filename: src/main/resources/_data.sql
-  checksum: d0ec5e05a0a738e7e30e7c5a7e3e2085f94e7c69edee8141d132fa24d7177556
-- filename: src/main/resources/_schema.sql
-  checksum: 240d208aae1e2efd6d83e305c910b43d59495d44629f90b6feba1fa839f8a09c
-- filename: src/main/resources/application.properties
-  checksum: 0c0ee4a0287ece0a6ed146842b39dfbe8727f0acf3e0deda8aad76491e780fbe
-- filename: mvnw
-  checksum: 9a0e968807e91279b4856750466e5aab9eeac7305e4ec8463979cb7cb0525f67
+- filename: src/main/resources/employee-directory.sql
+  checksum: 93a1778a79b90899e648310129acaae017d8a9ad3b7941f39663d73aa40e89fd
+- filename: cookies.txt
+  checksum: eb68da6cca78c65a3c195ad5cdf77dc783b033730fb80886b377f5c95106c71c
 version: ""
-
