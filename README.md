@@ -27,3 +27,14 @@ In `application.properties`, we have:
 ```
 spring.data.rest.base-path=/v10
 ```
+
+## Security
+
+`spring-boot-starter-security` is used to provide authentication / authorization.
+
+`SpringSecurityConfig` provides methods to disable CSRF and also build users with roles.
+
+`public UserDetailsManager userDetailsManager(DataSource dataSource)` handles user authentication and authorization 
+based on default table names that Spring Security understands: `users` and `authorities (roles)`.
+
+

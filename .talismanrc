@@ -1,6 +1,6 @@
 fileignoreconfig:
-- filename: src/main/resources/employee-directory.sql
-  checksum: 93a1778a79b90899e648310129acaae017d8a9ad3b7941f39663d73aa40e89fd
-- filename: cookies.txt
-  checksum: eb68da6cca78c65a3c195ad5cdf77dc783b033730fb80886b377f5c95106c71c
+- filename: src/main/resources/04-create-users-roles.sql
+  checksum: 4516fc8e290eb6d190209c40d0cbe2fbe0534c237b1de56089cb44a827186d3e
+- filename: src/main/resources/05-create-users-roles-bcrypt.sql
+  checksum: 4f433927a0d5a59c41a8a6921ef27895dc32a443cfc6d432b8a8c1404bbf6036
 version: ""

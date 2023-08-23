@@ -1,5 +1,6 @@
-CREATE DATABASE  IF NOT EXISTS `employee_directory`;
-USE `employee_directory`;
+--CREATE DATABASE  IF NOT EXISTS `employee_directory`;
+--USE `employee_directory`;
+USE `student_tracker`;
 
 --
 -- Table structure for table `employee`
