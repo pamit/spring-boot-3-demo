@@ -1,56 +1,69 @@
 package com.pamit.springbootdemo.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Entity(name = "courses")
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "course")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Course {
+
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+
     @Column(name = "title")
     private String title;
-    @Column(name = "author")
-    private String author;
 
-    public Course() {
-        this.id = 1L;
-        this.title = "";
-        this.author = "";
-    }
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "instructor_id")
+    private Instructor instructor;
 
-    public Course(Long id, String title, String author) {
-        this.id = id;
-        this.title = title;
-        this.author = author;
-    }
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id")
+    private List<Review> reviews;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinTable(name = "course_student",
+            joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "student_id"))
+    private List<Student> students;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
+    public Course(String title) {
         this.title = title;
     }
 
-    public String getAuthor() {
-        return author;
+    public void addReview(Review review) {
+        if (reviews == null) {
+            reviews = new ArrayList<>();
+        }
+
+        reviews.add(review);
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void addStudent(Student student) {
+        if (students == null) {
+            students = new ArrayList<>();
+        }
+
+        students.add(student);
     }
 
     @Override
     public String toString() {
-        return String.format("Course [id=%s, title=%s, author=%s]", id, title, author);
+        return "Course{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+//                ", instructor=" + instructor +
+                '}';
     }
 }

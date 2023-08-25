@@ -1,6 +1,4 @@
 fileignoreconfig:
-- filename: src/main/resources/04-create-users-roles.sql
-  checksum: 4516fc8e290eb6d190209c40d0cbe2fbe0534c237b1de56089cb44a827186d3e
-- filename: src/main/resources/05-create-users-roles-bcrypt.sql
-  checksum: 4f433927a0d5a59c41a8a6921ef27895dc32a443cfc6d432b8a8c1404bbf6036
+- filename: src/main/resources/06-create-instructor-tables.sql
+  checksum: 7c1878417ca88bc74526030a874a9dc0bb284ef027a79ab723ebafd60a81a3e5
 version: ""

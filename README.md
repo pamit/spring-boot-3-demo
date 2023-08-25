@@ -11,7 +11,7 @@ curl http://localhost:8080/students -u "user:67ffac77-5a43-4bee-a759-7ca10032d79
 curl -i -XPUT http://localhost:8080/students -H 'Content-Type: application/json' -d '{"id":10, "firstName":"P2", "email":"e2"}' -u "user:67ffac77-5a43-4bee-a759-7ca10032d79d"
 ```
 
-## Employee
+## Employees
 
 This resource was created directly by Spring Data REST as the package searches for all implementations of JpaRepository 
 like `EmployeeSpringDataJPA` and generates CRUD APIs:
@@ -37,4 +37,6 @@ spring.data.rest.base-path=/v10
 `public UserDetailsManager userDetailsManager(DataSource dataSource)` handles user authentication and authorization 
 based on default table names that Spring Security understands: `users` and `authorities (roles)`.
 
+## Instructors
 
+This resource along with `InstructorDetails` use Hibernate mappings: `@OneToOne, @OneToMany`, inside `CommandRunnerForInstructors`.
