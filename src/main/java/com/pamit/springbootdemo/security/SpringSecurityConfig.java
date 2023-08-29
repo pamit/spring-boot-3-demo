@@ -20,25 +20,33 @@ public class SpringSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        // Authorization roles
         httpSecurity.authorizeHttpRequests(auth -> auth
                 .requestMatchers(new AntPathRequestMatcher("/api/employees", HttpMethod.GET.name())).hasRole("EMPLOYEE")
                 .requestMatchers(new AntPathRequestMatcher("/api/employees/**", HttpMethod.GET.name())).hasRole("EMPLOYEE")
                 .requestMatchers(new AntPathRequestMatcher("/api/employees", HttpMethod.POST.name())).hasRole("MANAGER")
                 .requestMatchers(new AntPathRequestMatcher("/api/employees", HttpMethod.PUT.name())).hasRole("MANAGER")
                 .requestMatchers(new AntPathRequestMatcher("/api/employees", HttpMethod.DELETE.name())).hasRole("ADMIN")
+                .requestMatchers(new AntPathRequestMatcher("/", HttpMethod.GET.name())).hasRole("EMPLOYEE")
+                .requestMatchers(new AntPathRequestMatcher("/employees/delete", HttpMethod.GET.name())).hasRole("ADMIN")
                 .anyRequest().authenticated()
+        ).formLogin(form -> form
+                .loginPage("/users/login")
+                .loginProcessingUrl("/users/authenticate") // Spring won't pass the request to our controller, just for its own processing
+                .permitAll()
+        ).logout(logout -> logout
+                .permitAll()
+        ).exceptionHandling(ex ->
+                ex.accessDeniedPage("/access-denied")
         );
-
-        // Credentials window
-        httpSecurity.httpBasic(Customizer.withDefaults());
+//
+//        // Credentials window
+//        httpSecurity.httpBasic(Customizer.withDefaults());
 
         // This is to disable CSRF for CURL POST/PUT
         // curl -i -XPOST http://localhost:8080/api/students \
         // -H 'Content-Type: application/json' -d '{"firstName":"P1", "email":"e1"}' \
         // -u "user:67ffac77-5a43-4bee-a759-7ca10032d79d"
-//        httpSecurity.csrf().disable();
-        httpSecurity.csrf(csrf -> csrf.disable());
+//        httpSecurity.csrf(csrf -> csrf.disable());
 
         return httpSecurity.build();
     }
@@ -49,7 +57,6 @@ public class SpringSecurityConfig {
         return new JdbcUserDetailsManager(dataSource);
     }
 
-//    // Hardcoded users / roles
 //    @Bean
 //    public InMemoryUserDetailsManager userDetailsManager() {
 //        // curl -v -XPOST http://localhost:8080/api/employees \
@@ -74,6 +81,6 @@ public class SpringSecurityConfig {
 //                .roles("EMPLOYEE", "MANAGER", "ADMIN")
 //                .build();
 //
-//        return new InMemoryUserDetailsManager(john, jack, jack);
+//        return new InMemoryUserDetailsManager(john, joe, jack);
 //    }
 }

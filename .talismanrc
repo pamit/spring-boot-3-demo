@@ -1,4 +1,20 @@
 fileignoreconfig:
-- filename: SpringBootAOPTutorial.pdf
-  checksum: 04b7e97685f40da0a8af2f29cb2523fb54e6302e2ad49675b653723c22a92482
+- filename: src/main/resources/templates/admin.html
+  checksum: ad31150205ea557a9e3ec137eb4bbdaa5a50fefa8653ac8f9d1e58606cd6f4f4
+- filename: src/main/resources/templates/employees/form.html
+  checksum: ebffcde9001b3e2a9706d32f2c4d921e7ef61697a36f4e671366be09da7f3289
+- filename: src/main/resources/templates/employees/list.html
+  checksum: fe6c882821328879fd1524e6b6ddd67c1eb3c6c80bc02e8a162d7d18752ddaf0
+- filename: src/main/resources/templates/fancy-login.html
+  checksum: 1c65e22e7b3eaee169a4c48d5a8c3ca63be0bfa4d99ce3df13cb238cf6f8453a
+- filename: src/main/resources/templates/plain-login.html
+  checksum: 3a2b128c4fa929d0380cf44dca365a0173e4ad97ed6223f3deca4bd5c121e868
+- filename: src/main/resources/messages.properties
+  checksum: 29b20af3797bf34a663676980c5ca02f6a020e53d128b5baf56abc456f00aad1
+- filename: src/main/resources/templates/customer-confirmation.html
+  checksum: da3fd7c0628e1d85eba282c797de5d8f26eb17a0b1d56d9de85fae1ea7728598
+- filename: src/main/resources/templates/customer-form.html
+  checksum: 41bb908db7e20dbbbf5972e588fa24064b98f8bf1ae002dd3929a54da65f6c8a
+- filename: src/main/java/com/pamit/springbootdemo/security/SpringSecurityConfig.java
+  checksum: 4a5f8b2dfe3ad843ff425ed1657c26e2a37f14b03ac21dd8060cd490c270af61
 version: ""
